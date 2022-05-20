@@ -1,0 +1,24 @@
+server:
+  port: 8081
+  
+spring:
+  application:
+    name: ms-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/FranciscoHeral02/config-repo.git
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}
+          default-label: master
+      enabled: true
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8082/eureka/
+    enabled: true
+  instance:
+    hostname: localhost
